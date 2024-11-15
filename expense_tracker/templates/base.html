@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block head_title %}Expensify{% endblock %}</title>
+     {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles1.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/styles1.css' %}">
+      <script src="{% static 'assets/js/script.js' %}"></script>
+    <!-- <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'gifts/favicon.icon' %}"
+    /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block extra_head %}{% endblock %}
+  </head>
+  <header>
+    {% load static %}
+  
+    <a href="{% url 'index' %}">
+
+      {% static 'assets/' %}
+      <img src="{% static 'assets/images/Group 38.png' %}" alt="My image">
+    </a>
+    <nav class="nav-bar-right">
+        {% if user.is_authenticated %}
+        <p>Hi, {{ user.username }}</p>
+        <a href="{% url 'log-out' %}">Logout</a>
+        {% endif %}
+    </nav>
+  </header>
+  <body class="outer-container">
+    {% block body %} {% if messages %}
+    <div>
+      <ul>
+        {% for message in messages %}
+        <li class="messages">{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+  </body>
+  {% block footer %}
+  <footer></footer>
+  {% endblock %}
+</html>

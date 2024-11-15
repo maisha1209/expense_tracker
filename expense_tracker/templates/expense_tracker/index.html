@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% load static %}
+  {% block title %}
+  <title>My Finances</title>
+  {% endblock %}
+</head>
+<body>
+  {% block content %}
+  <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+  <h1>Dashboard</h1>
+  {% if logged_in %}
+  <h2>Budgets</h2>
+  {% if latest_budgets %}
+  <ul class='index-budget'>
+    {% for budget in latest_budgets %}
+    <li>
+      <a href="{% url 'budget' budget.id %}">{{ budget.date|date:"F Y" }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No budgets have been created yet.</p>
+  {% endif %}
+  <h3>Add a budget</h3>
+  {% if form.errors %}
+    {% for error in form.errors %}
+      <p><strong>{{ error }}</strong></p>
+    {% endfor %}
+  {% endif %}
+  <form action="/budget/new" method="POST">
+    {% csrf_token %}
+    <label for="id_date"></label>
+    <input type="month" id="id_date" name="date" />
+    <button>Submit</button>
+  </form>
+
+  <h2>Transactions</h2>
+  <a href="#" id="refresh-transactions">Refresh transactions</a>
+  <div id="transactions-container">
+      <table>
+          <tbody id="transactions-body">
+            {% if latest_transactions %}
+              {% for transaction in latest_transactions %}
+                <tr class="transaction-row">
+                  <td class="transaction-td-date">{{ transaction.date }}</td>
+                  <td class="transaction-td-name">{{ transaction.name }}</td>
+                  <td class="transaction-td-amount">{{ transaction.amount }}</td>
+                  <td class="transaction-td-category">{{ transaction.category.1 }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr><td colspan='4'>No transactions found.</td></tr>
+            {% endif %}
+          </tbody>
+      </table>
+  </div>
+
+  <h2>Accounts</h2>
+  <button id="link-button">Link Account</button>
+  <a href="{% url 'refresh-accounts' %}">Refresh accounts</a>
+  {% if accounts %}
+  <ul>
+    {% for account in accounts %}
+    <li>{{ account.official_name }} - {{ account.balances.current }}</li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    {% if error %}
+    <p>{{ error.display_message }}</p>
+    {% endif %}
+    <p>No accounts have been linked yet.</p>
+  {% endif %}
+  {% else %}
+  <a href="{% url 'signup' %}">Sign up</a>
+  <a href="{% url 'log-in-form' %}">Login</a>
+  {% endif %}
+
+  <script type="text/javascript">
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === name + "=") {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
+    const csrftoken = getCookie("csrftoken");
+
+    const myHeaders = new Headers({
+      "Content-Type": "text/plain",
+      "X-CSRFToken": csrftoken,
+    });
+
+    async function linkTokenFunc() {
+      const fetchLinkToken = async () => {
+        const response = await fetch("/create_link_token", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: myHeaders,
+        });
+        const responseJSON = await response.json();
+        return responseJSON.link_token;
+      };
+
+      const configs = {
+        token: await fetchLinkToken(),
+        onSuccess: async function (public_token, metadata) {
+          await fetch("/get_access_token", {
+            method: "POST",
+            headers: myHeaders,
+            body: JSON.stringify({
+              public_token: public_token,
+              accounts: metadata.accounts,
+            }),
+          });
+        },
+        onExit: async function (err, metadata) {
+          if (err != null && err.error_code === "INVALID_LINK_TOKEN") {
+            linkHandler.destroy();
+            linkHandler = Plaid.create({
+              ...configs,
+              token: await fetchLinkToken(),
+            });
+          }
+          if (err != null) {
+            console.error("Error:", err);
+          }
+          window.location = "/";
+        },
+      };
+
+      var linkHandler = Plaid.create(configs);
+      linkHandler.open();
+    }
+
+    document.getElementById("link-button").onclick = function () {
+      linkTokenFunc();
+    };
+
+    // JavaScript for refreshing transactions
+    document.getElementById("refresh-transactions").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        fetch("{% url 'get-transactions' %}")
+            .then(response => response.json())
+            .then(data => {
+                const transactionsBody = document.getElementById("transactions-body");
+                transactionsBody.innerHTML = ""; // Clear previous transactions
+
+                if (data.transactions && data.transactions.length > 0) {
+                    data.transactions.forEach(transaction => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${transaction.date}</td>
+                            <td>${transaction.name}</td>
+                            <td>${transaction.amount}</td>
+                            <td>${transaction.category ? transaction.category[1] : 'N/A'}</td>
+                        `;
+                        transactionsBody.appendChild(row);
+                    });
+                } else {
+                    transactionsBody.innerHTML = "<tr><td colspan='4'>No transactions found.</td></tr>";
+                }
+            })
+            .catch(error => console.error("Error fetching transactions:", error));
+    });
+  </script>
+  {% endblock %}
+</body>
