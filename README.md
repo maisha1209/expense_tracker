@@ -1,4 +1,4 @@
-Expense Tracker – Organize Your Finances More Intellectually
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 03 PM" src="https://github.com/user-attachments/assets/c76b1aeb-9fe9-42d7-b89c-5c9c4302abdc">Expense Tracker – Organize Your Finances More Intellectually
 
 📖 Description
 Expense Tracker is a web app built using Django to help graduate students and anyone who has been through the hustle of financial constraints. The goal of the application is to make expense tracking simple, budgeting easier, and goal-based saving achievable. All these will empower users toward financial stability, saving effectively, and working towards entrepreneurial ventures or personal financial goals.
@@ -63,7 +63,25 @@ Set savings goals: Identify savings goals and give updates on your progress regu
 Track spending: From the information collected, pinpoint wasteful spending so as to save more.
 
 
-🤝 Contributing
+📸 Screenshots
+
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 26 PM" src="https://github.com/user-attachments/assets/e3f7a623-9a00-4b49-b761-06e3aa287119">
+
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 30 PM" src="https://github.com/user-attachments/assets/49274a02-0302-4bad-bb2c-72fdd64dda06">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 44 PM" src="https://github.com/user-attachments/assets/cf79d971-7473-414a-92da-772d4ba07b4b">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 54 PM" src="https://github.com/user-attachments/assets/74694466-07b4-44d6-badb-01e5d617223e">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 27 54 PM" src="https://github.com/user-attachments/assets/8afc8799-8542-450b-acff-71a058fcd674">
+![Uploading Screenshot 2024-11-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 13 PM" src="https://github.com/user-attachments/assets/e0c3d56a-2f56-4c93-a8ea-4df340a0c7a1">
+26 at 4.28.03 PM.png…]()
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 18 PM" src="https://github.com/user-attachments/assets/07a09ad7-0400-4302-96a7-4e562f4733b7">
+
+🤝 Contributing<img width="1470" alt="Screenshot 2024-11-26 at 4 28 13 PM" src="https://github.com/user-attachments/assets/5a8a3509-e093-4d42-9332-54e4f54c171c">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 18 PM" src="https://github.com/user-attachments/assets/6dcdc09a-a873-4feb-ae93-ae7f7adb63de">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 25 PM" src="https://github.com/user-attachments/assets/cf88518c-a828-4087-b177-58d49554fed3">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 39 PM" src="https://github.com/user-attachments/assets/c68a18ea-a685-4c92-8262-b858a9e254d3">
+![Uploading Screenshot 2024-11-26 at 4.28.43 PM.png…]()
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 49 PM" src="https://github.com/user-attachments/assets/e8ebb6bc-8b4b-4f70-8759-3066a4237bc6">
+
 Contributions are welcome! If you have any feature ideas, improvements, or bug fixes, feel free to:
 Fork the repository Create a new feature branch (feature/new-feature) Open a pull request ??
 
