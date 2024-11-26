@@ -75,13 +75,14 @@ Track spending: From the information collected, pinpoint wasteful spending so as
 26 at 4.28.03 PM.png…]()
 <img width="1470" alt="Screenshot 2024-11-26 at 4 28 18 PM" src="https://github.com/user-attachments/assets/07a09ad7-0400-4302-96a7-4e562f4733b7">
 
-🤝 Contributing<img width="1470" alt="Screenshot 2024-11-26 at 4 28 13 PM" src="https://github.com/user-attachments/assets/5a8a3509-e093-4d42-9332-54e4f54c171c">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 13 PM" src="https://github.com/user-attachments/assets/5a8a3509-e093-4d42-9332-54e4f54c171c">
 <img width="1470" alt="Screenshot 2024-11-26 at 4 28 18 PM" src="https://github.com/user-attachments/assets/6dcdc09a-a873-4feb-ae93-ae7f7adb63de">
 <img width="1470" alt="Screenshot 2024-11-26 at 4 28 25 PM" src="https://github.com/user-attachments/assets/cf88518c-a828-4087-b177-58d49554fed3">
 <img width="1470" alt="Screenshot 2024-11-26 at 4 28 39 PM" src="https://github.com/user-attachments/assets/c68a18ea-a685-4c92-8262-b858a9e254d3">
 ![Uploading Screenshot 2024-11-26 at 4.28.43 PM.png…]()
 <img width="1470" alt="Screenshot 2024-11-26 at 4 28 49 PM" src="https://github.com/user-attachments/assets/e8ebb6bc-8b4b-4f70-8759-3066a4237bc6">
 
+🤝 Contributing
 Contributions are welcome! If you have any feature ideas, improvements, or bug fixes, feel free to:
 Fork the repository Create a new feature branch (feature/new-feature) Open a pull request ??
 
