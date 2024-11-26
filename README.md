@@ -61,29 +61,27 @@ Link accounts: Tap the "Link Account" button to securely link your bank accounts
 View transactions: Track spending and group expenses by category.
 Set savings goals: Identify savings goals and give updates on your progress regularly.
 Track spending: From the information collected, pinpoint wasteful spending so as to save more.
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 49 PM" src="https://github.com/user-attachments/assets/e39f6933-e911-4a78-b5fb-d2f740746d41">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 43 PM" src="https://github.com/user-attachments/assets/ddbb34b7-5486-4460-810f-cae2eb1c9826">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 39 PM" src="https://github.com/user-attachments/assets/d77b183a-fed4-45bb-adb9-f109d103453e">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 25 PM" src="https://github.com/user-attachments/assets/8003d458-faaf-437c-ba1b-022c9f6d7705">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 18 PM" src="https://github.com/user-attachments/assets/9d4eed13-78c0-497f-a6fc-5e649149cd95">
 
 
 📸 Screenshots
-
-<img width="1470" alt="Screenshot 2024-11-26 at 4 26 26 PM" src="https://github.com/user-attachments/assets/e3f7a623-9a00-4b49-b761-06e3aa287119">
-
-<img width="1470" alt="Screenshot 2024-11-26 at 4 26 30 PM" src="https://github.com/user-attachments/assets/49274a02-0302-4bad-bb2c-72fdd64dda06">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 26 44 PM" src="https://github.com/user-attachments/assets/cf79d971-7473-414a-92da-772d4ba07b4b">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 26 54 PM" src="https://github.com/user-attachments/assets/74694466-07b4-44d6-badb-01e5d617223e">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 27 54 PM" src="https://github.com/user-attachments/assets/8afc8799-8542-450b-acff-71a058fcd674">
-![Uploading Screenshot 2024-11-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 13 PM" src="https://github.com/user-attachments/assets/e0c3d56a-2f56-4c93-a8ea-4df340a0c7a1">
-26 at 4.28.03 PM.png…]()
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 18 PM" src="https://github.com/user-attachments/assets/07a09ad7-0400-4302-96a7-4e562f4733b7">
-
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 13 PM" src="https://github.com/user-attachments/assets/5a8a3509-e093-4d42-9332-54e4f54c171c">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 18 PM" src="https://github.com/user-attachments/assets/6dcdc09a-a873-4feb-ae93-ae7f7adb63de">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 25 PM" src="https://github.com/user-attachments/assets/cf88518c-a828-4087-b177-58d49554fed3">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 39 PM" src="https://github.com/user-attachments/assets/c68a18ea-a685-4c92-8262-b858a9e254d3">
-![Uploading Screenshot 2024-11-26 at 4.28.43 PM.png…]()
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 49 PM" src="https://github.com/user-attachments/assets/e8ebb6bc-8b4b-4f70-8759-3066a4237bc6">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 13 PM" src="https://github.com/user-attachments/assets/72415dfd-f729-44ae-b8c4-ab050c87dcc2">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 03 PM" src="https://github.com/user-attachments/assets/63c1b7fb-7b0a-49d3-98c6-c0bc7f67e771">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 27 54 PM" src="https://github.com/user-attachments/assets/e390e0be-d736-490f-82a3-5b534416ef7a">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 54 PM" src="https://github.com/user-attachments/assets/36cc2b06-126c-4185-ab48-8e3bdb2b55b2">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 44 PM" src="https://github.com/user-attachments/assets/6277b3c6-9702-4739-824c-414a25c7c8a9">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 30 PM" src="https://github.com/user-attachments/assets/48be447e-129d-4d40-ac16-1a56d987dc0b">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 26 PM" src="https://github.com/user-attachments/assets/c68bc2a3-e325-4300-9dae-ccfcb1eaaf71">
 
 🤝 Contributing
-Contributions are welcome! If you have any feature ideas, improvements, or bug fixes, feel free to:
-Fork the repository Create a new feature branch (feature/new-feature) Open a pull request ??
+Contributions are welcome! If you have ideas for features, improvements, or bug fixes, feel free to:
+Fork the repository
+Create a new branch (feature/new-feature)
+Submit a pull request
+
 
 ✨ Acknowledgments Plaid API to enable real-time financial data integration. Django and PostgreSQL communities for their solid frameworks. Motivation from students and individuals looking for financial stability.
