@@ -1,4 +1,4 @@
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 03 PM" src="https://github.com/user-attachments/assets/c76b1aeb-9fe9-42d7-b89c-5c9c4302abdc">Expense Tracker – Organize Your Finances More Intellectually
+Organize Your Finances More Intellectually
 
 📖 Description
 Expense Tracker is a web app built using Django to help graduate students and anyone who has been through the hustle of financial constraints. The goal of the application is to make expense tracking simple, budgeting easier, and goal-based saving achievable. All these will empower users toward financial stability, saving effectively, and working towards entrepreneurial ventures or personal financial goals.
@@ -61,6 +61,7 @@ Link accounts: Tap the "Link Account" button to securely link your bank accounts
 View transactions: Track spending and group expenses by category.
 Set savings goals: Identify savings goals and give updates on your progress regularly.
 Track spending: From the information collected, pinpoint wasteful spending so as to save more.
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 03 PM" src="https://github.com/user-attachments/assets/c76b1aeb-9fe9-42d7-b89c-5c9c4302abdc">Expense Tracker – 
 <img width="1470" alt="Screenshot 2024-11-26 at 4 28 49 PM" src="https://github.com/user-attachments/assets/e39f6933-e911-4a78-b5fb-d2f740746d41">
 <img width="1470" alt="Screenshot 2024-11-26 at 4 28 43 PM" src="https://github.com/user-attachments/assets/ddbb34b7-5486-4460-810f-cae2eb1c9826">
 <img width="1470" alt="Screenshot 2024-11-26 at 4 28 39 PM" src="https://github.com/user-attachments/assets/d77b183a-fed4-45bb-adb9-f109d103453e">
