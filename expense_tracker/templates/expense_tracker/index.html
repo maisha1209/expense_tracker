@@ -1,0 +1,286 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% load static %}
+  {% block title %}
+  <title>My Finances</title>
+  {% endblock %}
+  
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1E1E2D;
+      background-image:url(../../static/assets/images/cover.png); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #FFFFFF;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #E3B53C; /* Gold color for headings */
+      margin-bottom: 20px;
+    }
+
+    /* Container for Transactions and Accounts */
+    #transactions-container, #accounts-container {
+      width: 90%;
+      max-width: 800px;
+      margin: 30px auto;
+      background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      margin: 20px 0;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    table th, table td {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    table th {
+      background: rgba(255, 255, 255, 0.1);
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    table tr:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Button Styling */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      background: #E3B53C; /* Gold background */
+      color: #000000; /* Black text for contrast */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #c6a338;
+      transform: scale(1.05);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Nav Bar Styling */
+    .nav-bar-right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .nav-bar-right p {
+      color: #E3B53C;
+      margin-right: 10px;
+    }
+
+    /* List Styling for Accounts */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 5px 0;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+    }
+
+    /* Utility Classes */
+    .center-text {
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  {% block content %}
+  <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+  <h1></h1>
+  {% if logged_in %}
+  
+  <h2>Transactions</h2>
+  <br>
+  <br>
+
+  <nav class="nav-bar-right">
+    {% if user.is_authenticated %}
+    <p>Hi, {{ user.username }}</p>
+    <a href="{% url 'log-out' %}" class="btn">Logout</a>
+    <a href="{% url 'view_savings_goals' %}" class="btn">View Savings Goals</a>
+
+    {% endif %}
+  
+    <a href="#" id="refresh-transactions" class="btn">Refresh transactions</a>
+  </nav>
+  <div id="transactions-container">
+      <table>
+          <tbody id="transactions-body">
+            {% if latest_transactions %}
+              {% for transaction in latest_transactions %}
+                <tr class="transaction-row">
+                  <td class="transaction-td-date">{{ transaction.date }}</td>
+                  <td class="transaction-td-name">{{ transaction.name }}</td>
+                  <td class="transaction-td-amount">{{ transaction.amount }}</td>
+                  <td class="transaction-td-category">{{ transaction.category.1 }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr><td colspan='4'>No transactions found.</td></tr>
+            {% endif %}
+          </tbody>
+      </table>
+  </div>
+
+  <h2>Accounts</h2>
+  <div id="accounts-container">
+    <button id="link-button" class="btn">Link Account</button>
+    <a href="{% url 'refresh-accounts' %}" class="btn">Refresh accounts</a>
+    {% if accounts %}
+    <ul>
+      {% for account in accounts %}
+      <li>{{ account.official_name }} - {{ account.balances.current }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      {% if error %}
+      <p>{{ error.display_message }}</p>
+      {% endif %}
+      <p class="center-text">No accounts have been linked yet.</p>
+    {% endif %}
+  </div>
+  {% else %}
+  <div class="center-text">
+    <a href="{% url 'signup' %}" class="btn">Sign up</a>
+    <a href="{% url 'log-in-form' %}" class="btn">Login</a>
+  </div>
+  {% endif %}
+
+ 
+  <script type="text/javascript">
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === name + "=") {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
+    const csrftoken = getCookie("csrftoken");
+
+    const myHeaders = new Headers({
+      "Content-Type": "text/plain",
+      "X-CSRFToken": csrftoken,
+    });
+
+    async function linkTokenFunc() {
+      const fetchLinkToken = async () => {
+        const response = await fetch("/create_link_token", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: myHeaders,
+        });
+        const responseJSON = await response.json();
+        return responseJSON.link_token;
+      };
+
+      const configs = {
+        token: await fetchLinkToken(),
+        onSuccess: async function (public_token, metadata) {
+          await fetch("/get_access_token", {
+            method: "POST",
+            headers: myHeaders,
+            body: JSON.stringify({
+              public_token: public_token,
+              accounts: metadata.accounts,
+            }),
+          });
+        },
+        onExit: async function (err, metadata) {
+          if (err != null && err.error_code === "INVALID_LINK_TOKEN") {
+            linkHandler.destroy();
+            linkHandler = Plaid.create({
+              ...configs,
+              token: await fetchLinkToken(),
+            });
+          }
+          if (err != null) {
+            console.error("Error:", err);
+          }
+          window.location = "/";
+        },
+      };
+
+      var linkHandler = Plaid.create(configs);
+      linkHandler.open();
+    }
+
+    document.getElementById("link-button").onclick = function () {
+      linkTokenFunc();
+    };
+
+    // JavaScript for refreshing transactions
+    document.getElementById("refresh-transactions").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        fetch("{% url 'get-transactions' %}")
+            .then(response => response.json())
+            .then(data => {
+                const transactionsBody = document.getElementById("transactions-body");
+                transactionsBody.innerHTML = ""; // Clear previous transactions
+
+                if (data.transactions && data.transactions.length > 0) {
+                    data.transactions.forEach(transaction => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${transaction.date}</td>
+                            <td>${transaction.name}</td>
+                            <td>${transaction.amount}</td>
+                            <td>${transaction.category ? transaction.category[1] : 'N/A'}</td>
+                        `;
+                        transactionsBody.appendChild(row);
+                    });
+                } else {
+                    transactionsBody.innerHTML = "<tr><td colspan='4'>No transactions found.</td></tr>";
+                }
+            })
+            .catch(error => console.error("Error fetching transactions:", error));
+    });
+  </script>
+  {% endblock %}
+</body>
+</html>

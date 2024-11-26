@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+<!--{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'assets/css/styles1.css' %}">
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="signup-container">
+        <form method="POST" action="">
+            <h1>SIGNUP</h1>
+            {% csrf_token %}
+
+            <div class="input-group">
+                {{ form.username.label_tag }}
+                <div class="input-wrapper">
+                    {{ form.username }}
+                    <i class='bx bxs-user'></i>
+                </div>
+                {% if form.username.errors %}
+                    <p class="error-message">{{ form.username.errors }}</p>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                {{ form.email.label_tag }}
+                <div class="input-wrapper">
+                    {{ form.email }}
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                {% if form.email.errors %}
+                    <p class="error-message">{{ form.email.errors }}</p>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                {{ form.password1.label_tag }}
+                <div class="input-wrapper">
+                    {{ form.password1 }}
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                {% if form.password1.errors %}
+                    <p class="error-message">{{ form.password1.errors }}</p>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                {{ form.password2.label_tag }}
+                <div class="input-wrapper">
+                    {{ form.password2 }}
+                    <i class='bx bxs-lock'></i>
+                </div>
+                {% if form.password2.errors %}
+                    <p class="error-message">{{ form.password2.errors }}</p>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn">Sign up</button>
+
+            <div class="login-link">
+                <p> <a href="{% url 'login' %}">Already have an account ? Login</a></p>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>-->
+
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIGNUP</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/styles1.css' %}">
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  
+  <body>
+    {% block content %}
+    <div class="login-container">
+      <form action="{% url 'create-user' %}" method="POST">
+        {% csrf_token %}
+        <h1>SIGNUP</h1>
+  
+        <div class="input-group">
+          <input type="text" name="username" class="input-field" placeholder="Username..." required>
+          <i class='bx bxs-user'></i>
+        </div>
+  
+        <div class="input-group">
+          <input type="text" name="email" class="input-field" placeholder="Email..." required>
+          <i class='bx bxs-envelope'></i>
+        </div>
+  
+        <div class="input-group">
+          <input type="password" name="password" class="input-field" placeholder="Password..." required>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+  
+        <button type="submit" class="btn">Signup</button>
+  
+        <div class="login-link">
+          <!--<p>Already have an account? <a href="{% url 'log_in' %}">Login</a></p>-->
+        </div>
+      </form>
+    </div>
+    {% endblock %}
+  </body>
+  

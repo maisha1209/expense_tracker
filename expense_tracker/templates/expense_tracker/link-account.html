@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Link Account</title>
+</head>
+<body>
+  {% block content %}
+  <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+  <button id="link-button">Link Account</button>
+
+  <script type="text/javascript">
+    // Get cookie for CSRF token
+    //
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === name + "=") {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
+    const csrftoken = getCookie("csrftoken");
+
+    //const myHeaders = new Headers({
+    // "Content-Type": "text/plain",
+    //  "X-CSRFToken": csrftoken,
+    //});
+
+    // Create and return new link token, which will be passed to the configs object
+    // through async await.
+    //
+    async function linkTokenFunc() {
+      const fetchLinkToken = async () => {
+          const response = await fetch("http://127.0.0.1:8000/create-link-token", {
+              method: "POST",
+              credentials: "same-origin",
+              headers: {
+                  "Content-Type": "application/json",
+                  "X-CSRFToken": csrftoken,  // assuming `csrftoken` is available from Django template or elsewhere
+              },
+          });
+          const responseJSON = await response.json();
+          return responseJSON.link_token;
+      };
+      print("fetchLinkToken "+ fetchLinkToken)
+      const configs = {
+          token: await fetchLinkToken(),
+          onSuccess: async function (public_token, metadata) {
+            console.log("Metadata Accounts:", metadata.accounts); // Log accounts data
+              try {
+                  // Fetch request to get access token with public token and account metadata
+                  const response = await fetch("http://127.0.0.1:8000/get_access_token", {
+                      method: "POST",
+                      headers: {
+                          "Content-Type": "application/json",
+                          "X-CSRFToken": csrftoken,
+                      },
+                      body: JSON.stringify({
+                          public_token: public_token,
+                          accounts: metadata.accounts,
+                      }),
+                  });
+  
+                  if (!response.ok) {
+                      const errorData = await response.json();
+                      console.error("Error:", errorData);
+                  } else {
+                      // Redirect or handle success
+                      console.log("Access token successfully obtained");
+                      window.location.href = "/";
+
+                  }
+              } catch (error) {
+                  console.error("An error occurred:", error);
+              }
+          },
+          onExit: function (err, metadata) {
+              if (err != null && err.error_code === "INVALID_LINK_TOKEN") {
+                  linkHandler.destroy();
+                  linkHandler = Plaid.create(configs);
+              }
+              if (err != null) {
+                  console.error("An error occurred on exit:", err);
+              }
+          },
+      };
+  
+      const linkHandler = Plaid.create(configs);
+      linkHandler.open();
+  }
+  
+  document.getElementById("link-button").onclick = function () {
+      linkTokenFunc();
+  };
+  
+  
+  </script>
+  {% endblock %}
+</body>
