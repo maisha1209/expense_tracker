@@ -61,22 +61,26 @@ Link accounts: Tap the "Link Account" button to securely link your bank accounts
 View transactions: Track spending and group expenses by category.
 Set savings goals: Identify savings goals and give updates on your progress regularly.
 Track spending: From the information collected, pinpoint wasteful spending so as to save more.
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 03 PM" src="https://github.com/user-attachments/assets/c76b1aeb-9fe9-42d7-b89c-5c9c4302abdc">Expense Tracker – 
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 49 PM" src="https://github.com/user-attachments/assets/e39f6933-e911-4a78-b5fb-d2f740746d41">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 43 PM" src="https://github.com/user-attachments/assets/ddbb34b7-5486-4460-810f-cae2eb1c9826">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 39 PM" src="https://github.com/user-attachments/assets/d77b183a-fed4-45bb-adb9-f109d103453e">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 25 PM" src="https://github.com/user-attachments/assets/8003d458-faaf-437c-ba1b-022c9f6d7705">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 18 PM" src="https://github.com/user-attachments/assets/9d4eed13-78c0-497f-a6fc-5e649149cd95">
 
 
 📸 Screenshots
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 13 PM" src="https://github.com/user-attachments/assets/72415dfd-f729-44ae-b8c4-ab050c87dcc2">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 28 03 PM" src="https://github.com/user-attachments/assets/63c1b7fb-7b0a-49d3-98c6-c0bc7f67e771">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 27 54 PM" src="https://github.com/user-attachments/assets/e390e0be-d736-490f-82a3-5b534416ef7a">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 26 54 PM" src="https://github.com/user-attachments/assets/36cc2b06-126c-4185-ab48-8e3bdb2b55b2">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 26 44 PM" src="https://github.com/user-attachments/assets/6277b3c6-9702-4739-824c-414a25c7c8a9">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 26 30 PM" src="https://github.com/user-attachments/assets/48be447e-129d-4d40-ac16-1a56d987dc0b">
-<img width="1470" alt="Screenshot 2024-11-26 at 4 26 26 PM" src="https://github.com/user-attachments/assets/c68bc2a3-e325-4300-9dae-ccfcb1eaaf71">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 49 PM" src="https://github.com/user-attachments/assets/13ca9223-04f4-4266-be04-b64245ab7944">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 43 PM" src="https://github.com/user-attachments/assets/dff4593f-0d12-4fd9-8f61-37cde508ecd7">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 39 PM" src="https://github.com/user-attachments/assets/88deee6f-debe-4d7e-acda-ea536ce30a41">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 25 PM" src="https://github.com/user-attachments/assets/851fbcbd-e958-46ac-b47f-360d5b15a3a7">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 18 PM" src="https://github.com/user-attachments/assets/a8bddcac-d3d0-4f1b-aa30-691a3a8ce96c">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 13 PM" src="https://github.com/user-attachments/assets/cb281b94-6552-45f0-8fcc-3bdb93dcaea3">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 28 03 PM" src="https://github.com/user-attachments/assets/29a72dde-561d-4e18-a2d7-9021a02b9f1f">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 27 54 PM" src="https://github.com/user-attachments/assets/7720b8c5-cd46-483d-bc73-19361a29e8ec">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 54 PM" src="https://github.com/user-attachments/assets/b67588d1-2f66-4fc8-bbe2-5c43e4af4a3f">
+
+
+
+
+
+
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 30 PM" src="https://github.com/user-attachments/assets/9d06f7a6-fe48-459a-9e9a-27df9eb1f524">
+<img width="1470" alt="Screenshot 2024-11-26 at 4 26 26 PM" src="https://github.com/user-attachments/assets/5345db3e-ef27-4cfd-9327-58ad56f8c624">
 
 🤝 Contributing
 Contributions are welcome! If you have ideas for features, improvements, or bug fixes, feel free to:
